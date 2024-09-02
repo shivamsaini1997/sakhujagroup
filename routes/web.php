@@ -19,6 +19,7 @@ Route::post('/admin/forget-password', [AdminController::class, 'forgetPasswordSu
 Route::get('/admin/reset-password/{token}', [AdminController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('/admin/reset-password', [AdminController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
+
 Route::middleware('auth')->group(function(){
     Route::get('/admin/register', [AdminController::class, 'registerUser'])->name('userRegister');
     Route::post('/admin/register', [AdminController::class, 'stoteRegisterUser'])->name('store-register');

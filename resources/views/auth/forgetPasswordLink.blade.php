@@ -12,6 +12,7 @@
 
     <div class="login-box text-center">
 
+
         <div class="card">
             <div class="card-header">Reset Password</div>
             <div class="card-body">

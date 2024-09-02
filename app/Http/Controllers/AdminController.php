@@ -64,11 +64,6 @@ class AdminController extends Controller
             'type' => $request->input('type') // Save the 'type' field
         ]);
 
-        // Attempt to log in the user
-        Auth::attempt($request->only('email', 'password'));
-
-        $request->session()->regenerate();
-
         return redirect()->route('store-register')->with('success', 'You have successfully registered & logged in!');
     }
 

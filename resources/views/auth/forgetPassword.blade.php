@@ -6,6 +6,7 @@
 <body class="hold-transition login-page">
     <style>
         footer {
+
             display: none !important;
         }
     </style>
