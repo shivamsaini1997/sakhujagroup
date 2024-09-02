@@ -48,7 +48,13 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                <li><a href=""  class="nav-link"><b>{{$user->name}}</b></a></li>
+                <li>
+                    @isset($user)
+                    <a href="" class="nav-link"><b>{{ $user->name }}</b></a>
+                    @else
+                        <a href="" class="nav-link"><b></b></a>
+                    @endisset
+                </li>
 
 
             </ul>

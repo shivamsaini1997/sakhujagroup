@@ -14,9 +14,15 @@ Route::middleware('authadminlogin')->group(function(){
     Route::post('/admin', [AdminController::class, 'loginAdmin'])->name('admin-login');
 });
 
+Route::get('/admin/forget-password', [AdminController::class, 'forgetPassword'])->name('forgetpassword');
+Route::post('/admin/forget-password', [AdminController::class, 'forgetPasswordSubmit'])->name('forgetpasswordsubmit');
+Route::get('/admin/reset-password/{token}', [AdminController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('/admin/reset-password', [AdminController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
 Route::middleware('auth')->group(function(){
     Route::get('/admin/register', [AdminController::class, 'registerUser'])->name('userRegister');
     Route::post('/admin/register', [AdminController::class, 'stoteRegisterUser'])->name('store-register');
+    Route::post('/admin/register/{id}',[AdminController::class, 'deleteRegister'])->name('delete-register');
     Route::get('/logout',[AdminController::class, 'logout'])->name('logout');
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
@@ -44,6 +50,7 @@ Route::middleware('auth')->group(function(){
 Route::middleware(['auth', 'checkUserType:2'])->group(function() {
     Route::get('/admin/register', [AdminController::class, 'registerUser'])->name('userRegister');
     Route::post('/admin/register', [AdminController::class, 'stoteRegisterUser'])->name('store-register');
+
 });
 
 // --------Admin Routes end---------

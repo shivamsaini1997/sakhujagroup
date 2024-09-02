@@ -13,6 +13,8 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
+                @isset($user)
+
                 @if($user->type == 1)
                 <li class="nav-item">
                     <a href="{{route('dashboard')}}" class="nav-link">
@@ -322,6 +324,8 @@
                 @else
                     <p>You need to log in to view user data.</p>
                 @endif
+                @endisset
+
                 <li class="nav-item">
                     <a href="{{route('logout')}}" class="nav-link">
                         <i class=" nav-icon fas fa-sign-out-alt"></i>

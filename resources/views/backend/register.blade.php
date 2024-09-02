@@ -123,19 +123,26 @@
                     @foreach ($users as $user)
                     <tr>
                         <td><span class="increment">{{ $loop->iteration }}.</span></td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td>{{ $user ? $user->name : '' }}</td>
+                        <td>{{ $user ? $user->email : '' }}</td>
                         <td>
-                            {{ $user->type == 1 ? 'All with user' : '' }}
-                            {{ $user->type == 2 ? 'All without user' : '' }}
-                            {{ $user->type == 3 ? 'only Blog' : '' }}
+                            @if($user)
+                                @if($user->type == 1)
+                                    All with user
+                                @elseif($user->type == 2)
+                                    All without user
+                                @elseif($user->type == 3)
+                                    Only Blog
+                                @endif
+                            @endif
                         </td>
                         <td>
-                            <a href="#">
+                            <a href="{{ route('delete-register', ['id' => $user->id]) }}">
                                 <i class="nav-icon fas fa-trash text-danger pe-auto admin-delete"></i>
                             </a>
                         </td>
                     </tr>
+
                 @endforeach
 
                 </tbody>
