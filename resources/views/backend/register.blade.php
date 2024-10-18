@@ -48,12 +48,12 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label for="" class="form-label">Access</label>
+                                    <label for="" class="form-label">Role</label>
                                     <select name="type" id="" class="form-control">
                                         <option value="">Select</option>
-                                        <option value="1">All with user</option>
-                                        <option value="2">All without user</option>
-                                        {{-- <option value="3">Only Blog</option> --}}
+                                        <option value="1">Super Admin</option>
+                                        <option value="2">Admin</option>
+                                        {{-- <option value="3">Blog</option> --}}
                                     </select>
                                     <span class="text-danger mb-2">
                                         @error('type')
@@ -115,7 +115,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Access</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -128,11 +128,11 @@
                         <td>
                             @if($user)
                                 @if($user->type == 1)
-                                    All with user
+                                    Super Admin
                                 @elseif($user->type == 2)
-                                    All without user
+                                    Admin
                                 @elseif($user->type == 3)
-                                    Only Blog
+                                    Blog
                                 @endif
                             @endif
                         </td>

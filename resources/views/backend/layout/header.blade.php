@@ -4,9 +4,15 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
-
+<style>
+    .animation__shake {
+    width: 200px;
+    object-fit: contain;
+    height: 100px;
+}
+</style>
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{url('backend/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+            <img class="animation__shake" src="{{url('backend/img/sakhujagroup.png')}}" alt="AdminLTELogo" height="60" width="60">
         </div>
 
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">

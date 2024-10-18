@@ -49,7 +49,7 @@
                 </form>
 
                 <p class="mb-1">
-                    <a href="{{route('forgetpassword')}}">Login</a>
+                    <a href="{{route('admin')}}">Login</a>
                 </p>
                 <p class="mb-0">
                 </p>

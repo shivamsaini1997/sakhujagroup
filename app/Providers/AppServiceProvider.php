@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $globalSetting = GlobalSetting::first(); // Fetch the first record from GlobalSetting
+        // dd( $globalSetting );
         View::share('globalSetting', $globalSetting);
 
         View::composer('*', function ($view) {

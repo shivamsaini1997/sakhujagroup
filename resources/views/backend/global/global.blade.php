@@ -49,7 +49,7 @@ use Illuminate\Support\Facades\Storage;
                         <div class="col-lg-4 col-md-6 pt-4">
                             <div class="mb-3 position-relative">
                                 @if(isset($global->headerlogo) && $global->headerlogo)
-                                    <img src="{{ Storage::url($global->headerlogo) }}" alt="" style="width: 120px;height: 80px;object-fit: contain;">
+                                    <img src="{{ url($global->headerlogo) }}" alt="" style="width: 120px;height: 80px;object-fit: contain;">
                                     <a href="{{ route('delete-header-logo', ['id' => $global->id]) }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"  onclick="return confirm('Are you sure you want to delete the header logo?');">
                                         <i class="nav-icon fas fa-trash text-danger pe-auto admin-delete"></i>
                                     </a>
@@ -72,7 +72,7 @@ use Illuminate\Support\Facades\Storage;
                         <div class="col-lg-4 col-md-6 pt-4">
                             <div class="mb-3">
                                 @if(isset($global->favicon) && $global->favicon)
-                                <img src="{{ storage::url($global->favicon) }}" alt="" style="width: 30px;height: 30px;object-fit: contain;">
+                                <img src="{{ url($global->favicon) }}" alt="" style="width: 30px;height: 30px;object-fit: contain;">
                                 <a href="{{ route('delete-favicon', ['id' => $global->id]) }}"  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" onclick="return confirm('Are you sure you want to delete the favicon?');">
                                     <i class="nav-icon fas fa-trash text-danger pe-auto admin-delete"></i>
                                 </a>
@@ -97,7 +97,7 @@ use Illuminate\Support\Facades\Storage;
                             <div class="mb-3">
 
                                 @if(isset($global->footerlogo) && $global->footerlogo)
-                                <img src="{{ Storage::url($global->footerlogo) }}" alt="" style="width: 120px;height: 80px;object-fit: contain;">
+                                <img src="{{ url($global->footerlogo) }}" alt="" style="width: 120px;height: 80px;object-fit: contain;">
                                 <a href="{{ route('delete-footer-logo', ['id' => $global->id]) }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"  onclick="return confirm('Are you sure you want to delete the footer logo?');">
                                     <i class="nav-icon fas fa-trash text-danger pe-auto admin-delete"></i>
                                 </a>
@@ -131,6 +131,15 @@ use Illuminate\Support\Facades\Storage;
                                 <label for="linkedin_link" class="form-label">Linkedin Link</label>
                                 <input type="url" name="linkedin_link" id="linkedin_link" class="form-control" value="{{ $global? $global->linkedinlink : ''}}" />
                                 @error('linkedin_link')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="twitter_link" class="form-label">Twitter Link</label>
+                                <input type="url" name="twitter_link" id="twitter_link" class="form-control" value="{{ $global? $global->twitter_link : ''}}" />
+                                @error('twitter_link')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>

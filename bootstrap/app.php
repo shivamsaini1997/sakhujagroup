@@ -18,7 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'auth' => AuthMiddleware::class,
             'authadminlogin' => AuthAdminLogin::class,
             'checkUserType' => CheckUserType::class,
-
+            Spatie\Permission\PermissionServiceProvider::class,
         ]);
     })
 
